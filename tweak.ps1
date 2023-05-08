@@ -1,4 +1,4 @@
-curl -o freshwindows.ps1 https://raw.githubusercontent.com/wassupluke/rn/main/tweak.ps1
+curl -o tweak.ps1 https://raw.githubusercontent.com/wassupluke/rn/main/tweak.ps1
 
 ###       Disable Mouse Acceleration       ###
 $RegConnect = [Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]"CurrentUser","$env:COMPUTERNAME")
