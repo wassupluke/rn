@@ -23,7 +23,7 @@ New-ItemProperty -Path $registryPath -Name "EnableAutoTray" -PropertyType DWORD 
 Stop-Process -processName: Explorer -force
 
 
-###       Set Dark Theme and Wallpaper      ###
+###             Set Dark Theme             ###
 # set "app" system mode to "dark"
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0 -Type Dword -Force; 
 # set "OS" system mode to "dark"
