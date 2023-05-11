@@ -1,4 +1,6 @@
-curl -o tweak.ps1 https://raw.githubusercontent.com/wassupluke/rn/main/tweak.ps1
+#curl -o tweak.ps1 https://raw.githubusercontent.com/wassupluke/rn/main/tweak.ps1
+
+set-ExecutionPolicy -Scope CurrentUser Unrestricted
 
 ###       Disable Mouse Acceleration       ###
 $RegConnect = [Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]"CurrentUser","$env:COMPUTERNAME")
@@ -20,7 +22,6 @@ Add-Type $code -name Win32 -NameSpace System
 $registryPath = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer"
 If ( !(Test-Path $registryPath) ) {New-Item -Path $registryPath -Force; }
 New-ItemProperty -Path $registryPath -Name "EnableAutoTray" -PropertyType DWORD -Value 0 -Force
-Stop-Process -processName: Explorer -force
 
 
 ###             Set Dark Theme             ###
@@ -37,7 +38,10 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -N
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search -Name TraySearchBoxVisibleOnAnyMonitor -Value 0 -Type Dword -Force;
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowCortanaButton -Value 0 -Type Dword -Force;
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowTaskViewButton -Value 0 -Type Dword -Force;
+Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name SearchboxTaskbarMode -Value 0 -Type Dword -Force;
 
+###                FINALLY                 ###
+Stop-Process -processName: Explorer -force
 
 ###      Perhaps stronger than WinGet      ###
 # https://learn.microsoft.com/en-us/powershell/gallery/powershellget/install-powershellget
