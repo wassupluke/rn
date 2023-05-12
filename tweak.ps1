@@ -35,10 +35,10 @@ Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Pe
 
 ###    Hide Search, Cortana, Task View     ###
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Search -Name TraySearchBoxVisible -Value 0 -Type Dword -Force;
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Search -Name SearchboxTaskbarMode -Value 0 -Type Dword -Force;
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Search -Name TraySearchBoxVisibleOnAnyMonitor -Value 0 -Type Dword -Force;
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowCortanaButton -Value 0 -Type Dword -Force;
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowTaskViewButton -Value 0 -Type Dword -Force;
-Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name SearchboxTaskbarMode -Value 0 -Type Dword -Force;
 
 ###                FINALLY                 ###
 Stop-Process -processName: Explorer -force
