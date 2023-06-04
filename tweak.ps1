@@ -1,4 +1,4 @@
-#curl -o tweak.ps1 https://raw.githubusercontent.com/wassupluke/rn/main/tweak.ps1
+#curl -o tweak.ps1 https://raw.githubusercontent.com/wassupluke/rn/main/tweak.ps1 && .\tweak.ps1 && rm tweak.ps1
 
 set-ExecutionPolicy -Scope CurrentUser Unrestricted
 
