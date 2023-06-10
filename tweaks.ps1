@@ -1,4 +1,4 @@
-#set-ExecutionPolicy -Scope CurrentUser Unrestricted; curl -o tweaks.ps1 https://raw.githubusercontent.com/wassupluke/rn/main/tweaks.ps1; .\tweaks.ps1; rm tweaks.ps1
+#set-ExecutionPolicy -Scope CurrentUser Unrestricted; [System.Net.HttpWebRequest]::DefaultWebProxy = New-Object System.Net.WebProxy($null); curl -o tweaks.ps1 https://raw.githubusercontent.com/wassupluke/rn/main/tweaks.ps1; .\tweaks.ps1; rm tweaks.ps1
 
 ###       Disable Mouse Acceleration       ###
 $RegConnect = [Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]"CurrentUser","$env:COMPUTERNAME")
